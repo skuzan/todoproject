@@ -1,38 +1,160 @@
-.App {
+/* Genel sayfa stili */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  background: linear-gradient(135deg, #f5f7fb, #e4ecff);
+}
+
+/* Ana kutu */
+.container {
+  width: 100%;
+  max-width: 420px;
+  margin: 60px auto;
+  padding: 35px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.1),
+    0 4px 12px rgba(0, 0, 0, 0.05);
+
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
+  gap: 1.5rem;
+  animation: fadeIn 0.3s ease;
+}
+
+/* Input alanı */
+.container input {
+  width: 100%;
+  padding: 12px 12px;
+  margin-bottom: 18px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.container input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 6px rgba(0, 123, 255, 0.4);
+}
+
+/* Buton */
+.container button {
+  width: 100%;
+  padding: 12px 15px;
+  background: #007bff;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.container button:hover {
+  background: #005fcc;
+  box-shadow: 0 6px 14px rgba(0, 123, 255, 0.35);
+}
+
+.container button:active {
+  transform: scale(0.97);
+  box-shadow: none;
+}
+
+/* Todo list konteyneri */
+.todo-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+/* Tek tek todo satırı */
+.todo-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: #f7f8fc;
+  border: 1px solid #eceffd;
+  transition: background 0.2s ease, box-shadow 0.2s ease,
+    transform 0.1s ease;
+}
+
+.todo-item:hover {
+  background: #f1f4ff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transform: translateY(-1px);
+}
+
+/* Todo metni */
+.todo-text {
+  flex: 1;
+  font-size: 0.98rem;
+  color: #333;
+  padding-right: 10px;
+  word-break: break-word;
+}
+
+/* Sağdaki ikonların konteyneri */
+.todo-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* İkon butonları */
+.icon-button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 4px;
+  border-radius: 999px;
+  transition: background 0.2s ease, transform 0.1s ease;
+  font-size: 1.25rem;
 }
 
-.App-link {
-  color: #61dafb;
+/* Sil butonu rengi */
+.icon-button.delete svg {
+  color: #ffffff;
 }
 
-@keyframes App-logo-spin {
+/* Düzenle butonu rengi */
+.icon-button.edit svg {
+  color: #ffffff;
+}
+
+/* Hover efektleri */
+.icon-button:hover {
+  background: rgba(0, 0, 0, 0.04);
+  transform: scale(1.05);
+}
+
+.icon-button:active {
+  transform: scale(0.95);
+}
+
+/* Küçük animasyon */
+@keyframes fadeIn {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
+    transform: translateY(6px);
   }
   to {
-    transform: rotate(360deg);
+    opacity: 1;
+    transform: translateY(0);
   }
 }
